@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6A9BE5032CF61B33004281F1 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6A9BE5022CF61B33004281F1 /* CombineCocoa */; };
 		6A9BE5062CF61B55004281F1 /* KcLibraryswift in Frameworks */ = {isa = PBXBuildFile; productRef = 6A9BE5052CF61B55004281F1 /* KcLibraryswift */; };
+		6A9BE5112CF62291004281F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BE5102CF62291004281F1 /* Localizable.strings */; };
+		6A9BE5142CF625CA004281F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BE5102CF62291004281F1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		6A9BE48E2CF5E6CB004281F1 /* dragonball-asincronismo-reactividad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dragonball-asincronismo-reactividad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9BE4A42CF5E6CC004281F1 /* dragonball-asincronismo-reactividadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dragonball-asincronismo-reactividadTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9BE50E2CF62291004281F1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6A9BE50F2CF62291004281F1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -34,6 +38,13 @@
 			);
 			target = 6A9BE48D2CF5E6CB004281F1 /* dragonball-asincronismo-reactividad */;
 		};
+		6A9BE5162CF625D7004281F1 /* Exceptions for "dragonball-asincronismo-reactividad" folder in "dragonball-asincronismo-reactividadTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/heros.json,
+			);
+			target = 6A9BE4A32CF5E6CC004281F1 /* dragonball-asincronismo-reactividadTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,6 +52,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				6A9BE4B62CF5E6CC004281F1 /* Exceptions for "dragonball-asincronismo-reactividad" folder in "dragonball-asincronismo-reactividad" target */,
+				6A9BE5162CF625D7004281F1 /* Exceptions for "dragonball-asincronismo-reactividad" folder in "dragonball-asincronismo-reactividadTests" target */,
 			);
 			path = "dragonball-asincronismo-reactividad";
 			sourceTree = "<group>";
@@ -75,6 +87,7 @@
 		6A9BE4852CF5E6CB004281F1 = {
 			isa = PBXGroup;
 			children = (
+				6A9BE5102CF62291004281F1 /* Localizable.strings */,
 				6A9BE4902CF5E6CB004281F1 /* dragonball-asincronismo-reactividad */,
 				6A9BE4A72CF5E6CC004281F1 /* dragonball-asincronismo-reactividadTests */,
 				6A9BE48F2CF5E6CB004281F1 /* Products */,
@@ -165,6 +178,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 6A9BE4852CF5E6CB004281F1;
 			minimizedProjectReferenceProxies = 1;
@@ -188,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9BE5112CF62291004281F1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9BE5142CF625CA004281F1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +240,18 @@
 			targetProxy = 6A9BE4A52CF5E6CC004281F1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6A9BE5102CF62291004281F1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A9BE50E2CF62291004281F1 /* Localizable.strings */,
+				6A9BE50F2CF62291004281F1 /* Localizable.strings */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6A9BE4B82CF5E6CC004281F1 /* Debug */ = {
