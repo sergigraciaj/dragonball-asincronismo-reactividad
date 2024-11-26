@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6A9BE5032CF61B33004281F1 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6A9BE5022CF61B33004281F1 /* CombineCocoa */; };
+		6A9BE5062CF61B55004281F1 /* KcLibraryswift in Frameworks */ = {isa = PBXBuildFile; productRef = 6A9BE5052CF61B55004281F1 /* KcLibraryswift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6A9BE4A52CF5E6CC004281F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9BE5062CF61B55004281F1 /* KcLibraryswift in Frameworks */,
+				6A9BE5032CF61B33004281F1 /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +110,8 @@
 			);
 			name = "dragonball-asincronismo-reactividad";
 			packageProductDependencies = (
+				6A9BE5022CF61B33004281F1 /* CombineCocoa */,
+				6A9BE5052CF61B55004281F1 /* KcLibraryswift */,
 			);
 			productName = "dragonball-asincronismo-reactividad";
 			productReference = 6A9BE48E2CF5E6CB004281F1 /* dragonball-asincronismo-reactividad.app */;
@@ -159,6 +168,10 @@
 			);
 			mainGroup = 6A9BE4852CF5E6CB004281F1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6A9BE5012CF61B33004281F1 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+				6A9BE5042CF61B55004281F1 /* XCRemoteSwiftPackageReference "KcLibraryswift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6A9BE48F2CF5E6CB004281F1 /* Products */;
 			projectDirPath = "";
@@ -225,7 +238,6 @@
 				INFOPLIST_FILE = "dragonball-asincronismo-reactividad/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -257,7 +269,6 @@
 				INFOPLIST_FILE = "dragonball-asincronismo-reactividad/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -473,6 +484,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A9BE5012CF61B33004281F1 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+		6A9BE5042CF61B55004281F1 /* XCRemoteSwiftPackageReference "KcLibraryswift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joselbe1976/KcLibraryswift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A9BE5022CF61B33004281F1 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A9BE5012CF61B33004281F1 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+		6A9BE5052CF61B55004281F1 /* KcLibraryswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A9BE5042CF61B55004281F1 /* XCRemoteSwiftPackageReference "KcLibraryswift" */;
+			productName = KcLibraryswift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6A9BE4862CF5E6CB004281F1 /* Project object */;
 }
