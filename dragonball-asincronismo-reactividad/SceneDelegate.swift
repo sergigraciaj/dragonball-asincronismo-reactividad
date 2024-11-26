@@ -26,21 +26,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 switch estado {
                 case .notValidate, .none:
                     DispatchQueue.main.async {
-                        print("login")
                         nav = UINavigationController(rootViewController: LoginViewController(appState: self.appState))
                         self.window!.rootViewController = nav
                         self.window!.makeKeyAndVisible()
                     }
                 case .success:
                     DispatchQueue.main.async {
-                        print("Vamos a la home")
                         nav = UINavigationController(rootViewController: HerosTableViewController(appState: self.appState, viewModel: HerosViewModel()))
                         self.window!.rootViewController = nav
                         self.window!.makeKeyAndVisible()
                     }
                 case .error:
                     DispatchQueue.main.async {
-                        print("Pantalla de error")
                         nav = UINavigationController(rootViewController: ErrorViewController(appState: self.appState, error: "Error en el login usuario/Clave"))
                         self.window!.rootViewController = nav
                         self.window!.makeKeyAndVisible()

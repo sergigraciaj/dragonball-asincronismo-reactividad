@@ -1,18 +1,18 @@
 import Foundation
 import KcLibraryswift
 
-protocol NetworkHerosProtocol {
-    func getHeros(filter: String) async -> [HerosModel]
+protocol NetworkTransformationsProtocol {
+    func getTransformations(filter: String) async -> [TransformationsModel]
 }
 
-final class NetworkHeros: NetworkHerosProtocol {
-    func getHeros(filter: String) async -> [HerosModel] {
-        var modelReturn = [HerosModel]()
+final class NetworkTransformation: NetworkTransformationsProtocol {
+    func getTransformations(filter: String) async -> [TransformationsModel] {
+        var modelReturn = [TransformationsModel]()
         
-        let urlCad : String = "\(ConstantsApp.CONST_API_URL)\(EndPoints.heros.rawValue)"
+        let urlCad : String = "\(ConstantsApp.CONST_API_URL)\(EndPoints.transformations.rawValue)"
         var request : URLRequest = URLRequest(url: URL(string: urlCad)!)
         request.httpMethod = HTTPMethods.post
-        request.httpBody = try? JSONEncoder().encode(HeroModelRequest(name: filter))
+        request.httpBody = try? JSONEncoder().encode(TransformationModelRequest(id: filter))
         request.addValue(HTTPMethods.content, forHTTPHeaderField: "Content-type")
     
         let JwtToken =  KeyChainKC().loadKC(key: ConstantsApp.CONST_TOKEN_ID_KEYCHAIN)
@@ -24,7 +24,7 @@ final class NetworkHeros: NetworkHerosProtocol {
             let (data, response) = try await URLSession.shared.data(for: request)
             if let resp = response  as? HTTPURLResponse {
                 if resp.statusCode == HTTPResponseCodes.SUCCESS {
-                    modelReturn = try! JSONDecoder().decode([HerosModel].self, from: data)
+                    modelReturn = try! JSONDecoder().decode([TransformationsModel].self, from: data)
                 }
             }
         }catch{
@@ -34,18 +34,18 @@ final class NetworkHeros: NetworkHerosProtocol {
     }
 }
 
-final class NetworkHerosFake: NetworkHerosProtocol {
-    func getHeros(filter: String) async -> [HerosModel] {
-        return getHerosFromJson()
+final class NetworkTransformationsFake: NetworkTransformationsProtocol {
+    func getTransformations(filter: String) async -> [TransformationsModel] {
+        return getTransformationsFromJson()
     }
 }
 
-func getHerosFromJson() -> [HerosModel] {
-    if let url = Bundle.main.url(forResource: "heros", withExtension: "json") {
+func getTransformationsFromJson() -> [TransformationsModel] {
+    if let url = Bundle.main.url(forResource: "transformations", withExtension: "json") {
         do {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            let jsonData = try decoder.decode([HerosModel].self, from: data)
+            let jsonData = try decoder.decode([TransformationsModel].self, from: data)
             return jsonData
         } catch {
             print("error:\(error)")

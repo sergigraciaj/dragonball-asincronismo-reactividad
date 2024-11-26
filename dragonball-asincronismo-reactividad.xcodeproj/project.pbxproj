@@ -42,6 +42,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Resources/heros.json,
+				Resources/transformations.json,
 			);
 			target = 6A9BE4A32CF5E6CC004281F1 /* dragonball-asincronismo-reactividadTests */;
 		};

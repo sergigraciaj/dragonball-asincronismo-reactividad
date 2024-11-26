@@ -43,7 +43,6 @@ final class LoginViewController: UIViewController {
                 .receive(on: DispatchQueue.main)
                 .sink(receiveValue: { [weak self] data in
                     if let usr = data {
-                        print("Text user: \(usr)")
                         self?.user = usr
                         
                         if let button = self?.loginButton {
@@ -63,7 +62,6 @@ final class LoginViewController: UIViewController {
                 .receive(on: DispatchQueue.main)
                 .sink(receiveValue: { [weak self] data in
                     if let pass = data {
-                        print("Text pass: \(pass)")
                         self?.pass = pass
                     }
                 })

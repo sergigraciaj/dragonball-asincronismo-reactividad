@@ -1,0 +1,29 @@
+[
+    {
+        "photo": "https://areajugones.sport.es/wp-content/uploads/2021/05/ozarru.jpg.webp",
+        "name": "1. Oozaru – Gran Mono",
+        "hero": {
+            "id": "D13A40E5-4418-4223-9CE6-D2F9A28EBE94"
+        },
+        "id": "17824501-1106-4815-BC7A-BFDCCEE43CC9",
+        "description": "Cómo todos los Saiyans con cola, Goku es capaz de convertirse en un mono gigante si mira fijamente a la luna llena. Así es como Goku cuando era un infante liberaba todo su potencial a cambio de perder todo el raciocinio y transformarse en una auténtica bestia. Es por ello que sus amigos optan por cortarle la cola para que no ocurran desgracias, ya que Goku mató a su propio abuelo adoptivo Son Gohan estando en este estado. Después de beber el Agua Ultra Divina, Goku liberó todo su potencial sin necesidad de volver a convertirse en Oozaru"
+    },
+    {
+        "photo": "https://areajugones.sport.es/wp-content/uploads/2017/05/Goku_Kaio-Ken_Coolers_Revenge.jpg",
+        "name": "2. Kaio-Ken",
+        "hero": {
+            "id": "D13A40E5-4418-4223-9CE6-D2F9A28EBE94"
+        },
+        "id": "9D6012A0-B6A9-4BAB-854D-67904E90CE01",
+        "description": "La técnica de Kaio-sama permitía a Goku aumentar su poder de forma exponencial durante un breve periodo de tiempo para intentar realizar un ataque que acabe con el enemigo, ya que después de usar esta técnica a niveles altos el cuerpo de Kakarotto queda exhausto. Su máximo multiplicador de poder con esta técnica es de hasta x20, aunque en la película en la que se enfrenta contra Lord Slug es capaz de envolverse en éste aura roja a nivel x100"
+    },
+    {
+        "photo": "https://areajugones.sport.es/wp-content/uploads/2021/05/pseudo-super-saiyan.jpg.webp",
+        "name": "3. Super Saiyan Falso",
+        "hero": {
+            "id": "D13A40E5-4418-4223-9CE6-D2F9A28EBE94"
+        },
+        "id": "AC0A2884-A23F-41EA-9110-FB02A6980AE4",
+        "description": "A este nivel de Super Saiyan se le conoce como False-Super Saiyan, Fake-Super Saiyan, Pseudo-Super Saiyan e incluso Saiyan 1.5. Dicha transformación nunca llega a ser canon puesto que sucedió en la batalla contra Lord Slug, en la cual Goku recurre a este nuevo nivel de poder en el que se embulle en un aura amarilla, su pelo se eriza y coge tintes rojizos, su musculatura aumenta y sus ojos se quedan totalmente en blanco como si hubiese perdido totalmente el juicio."
+    }
+]
