@@ -1,13 +1,13 @@
 import UIKit
 import Combine
 
-class HerosTableViewController: UITableViewController {
+class TransformationsTableViewController: UITableViewController {
 
     private var appState: AppState?
-    private var viewModel: HerosViewModel
+    private var viewModel: TransformationsViewModel
     var suscriptions = Set<AnyCancellable>()
     
-    init(appState: AppState, viewModel: HerosViewModel) {
+    init(appState: AppState, viewModel: TransformationsViewModel) {
         self.appState = appState
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -19,9 +19,10 @@ class HerosTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "HerosTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.register(UINib(nibName: "TransformationsTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeSession))
-        self.title = "Lista de Heroes"
+        // TODO: cambiar el titulo
+        self.title = self.viewModel.hero.name
         self.bindingUI()
     }
     
@@ -31,7 +32,7 @@ class HerosTableViewController: UITableViewController {
     }
     
     private func bindingUI() {
-        self.viewModel.$herosData
+        self.viewModel.$transformationsData
             .receive(on: DispatchQueue.main)
             .sink{ data in
                 self.tableView.reloadData()
@@ -46,32 +47,25 @@ class HerosTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.herosData.count
+        return self.viewModel.transformationsData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HerosTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TransformationsTableViewCell
         
-        let hero = self.viewModel.herosData[indexPath.row]
-        cell.title.text = hero.name
-        cell.photo.loadImageRemote(url: URL(string: hero.photo)!)
+        let transformation = self.viewModel.transformationsData[indexPath.row]
+        cell.title.text = transformation.name
+        cell.photo.loadImageRemote(url: URL(string: transformation.photo)!)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Extract the model
-        let hero = self.viewModel.herosData[indexPath.row]
-        
-        navigationController?.show(TransformationsTableViewController(appState: appState!, viewModel: TransformationsViewModel(hero: hero)), sender: true)
-    }
 }
 
 #Preview {
-    HerosTableViewController(
+    TransformationsTableViewController(
         appState: AppState(loginUseCase: LoginUseCaseFake()),
-        viewModel: HerosViewModel(useCase: HeroUseCaseFake()))
+        viewModel: TransformationsViewModel(hero: HerosModel(id: "fakeId", favorite: true, description: "fakeDescription", photo: "fakePhoto", name: "fakeName"), useCase: TransformationUseCaseFake()))
 }

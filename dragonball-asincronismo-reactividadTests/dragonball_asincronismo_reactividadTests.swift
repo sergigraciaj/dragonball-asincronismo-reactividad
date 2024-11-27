@@ -6,14 +6,7 @@ import UIKit
 @testable import dragonball_asincronismo_reactividad
 
 final class Tests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    let hero = HerosModel(id: "fakeId", favorite: true, description: "fakeDescription", photo: "fakePhoto", name: "fakeName")
     
     func testKeyChainLibrary() throws {
         let KC = KeyChainKC()
@@ -95,7 +88,6 @@ final class Tests: XCTestCase {
                     print("finalizado")
                 }
             } receiveValue: { estado in
-                print("Recibo estado \(estado)")
                 if estado == .success {
                     exp.fulfill()
                 }
@@ -158,6 +150,7 @@ final class Tests: XCTestCase {
     func testHeroiewViewModel() async throws  {
         let vm = HerosViewModel(useCase: HeroUseCaseFake())
         XCTAssertNotNil(vm)
+        sleep(10)
         XCTAssertEqual(vm.herosData.count, 2) //debe haber 2 heroes Fake mokeados
     }
     
@@ -217,9 +210,9 @@ final class Tests: XCTestCase {
     
     func testHeros_Domain() async throws  {
        //Models
-        let model = HerosModel(id: UUID(), favorite: true, description: "des", photo: "url", name: "goku")
+        let model = hero
         XCTAssertNotNil(model)
-        XCTAssertEqual(model.name, "goku")
+        XCTAssertEqual(model.name, "fakeName")
         XCTAssertEqual(model.favorite, true)
         
         let requestModel = HeroModelRequest(name: "goku")
@@ -232,6 +225,88 @@ final class Tests: XCTestCase {
         XCTAssertNotNil(viewModel)
         
         let view =  await HerosTableViewController(appState: AppState(loginUseCase: LoginUseCaseFake()), viewModel: viewModel)
+        XCTAssertNotNil(view)
+        
+    }
+    
+    func testTransformationsViewModel() async throws  {
+        let vm = TransformationsViewModel(hero: hero, useCase: TransformationUseCaseFake())
+        XCTAssertNotNil(vm)
+        sleep(10)
+        XCTAssertEqual(vm.transformationsData.count, 3) //debe haber 3 transformaciones Fake mokeadas
+    }
+    
+    func testTransformationsUseCase() async throws  {
+       let caseUser = TransformationUseCase(repo: TransformationsRepositoryFake())
+        XCTAssertNotNil(caseUser)
+        
+        let data = await caseUser.getTransformations(filter: "fakeId")
+        XCTAssertNotNil(data)
+        XCTAssertEqual(data.count, 3)
+    }
+    
+    func testTransformations_Combine() async throws  {
+        var suscriptor = Set<AnyCancellable>()
+        let exp = self.expectation(description: "Transformations get")
+        
+        let vm = TransformationsViewModel(hero: hero, useCase: TransformationUseCaseFake())
+        XCTAssertNotNil(vm)
+        
+        vm.$transformationsData
+            .sink { completion in
+                switch completion{
+                    
+                case .finished:
+                    print("finalizado")
+                }
+            } receiveValue: { data in
+      
+                if data.count == 3 {
+                    exp.fulfill()
+                }
+            }
+            .store(in: &suscriptor)
+      
+        
+        await fulfillment(of: [exp], timeout: 10)
+    }
+    
+    func testTransformations_Data() async throws  {
+        let network = NetworkTransformationsFake()
+        XCTAssertNotNil(network)
+        let repo = TransformationsRepository(network: network)
+        XCTAssertNotNil(repo)
+        
+        let repo2 = TransformationsRepositoryFake()
+        XCTAssertNotNil(repo2)
+        
+        let data = await repo.getTransformations(filter: "fakeId")
+        XCTAssertNotNil(data)
+        XCTAssertEqual(data.count, 3)
+        
+        
+        let data2 = await repo2.getTransformations(filter: "fakeId")
+        XCTAssertNotNil(data2)
+        XCTAssertEqual(data2.count, 3)
+    }
+    
+    func testTransformations_Domain() async throws  {
+       //Models
+        let transformationHero = TransformationHero(id: "fakeId")
+        let model = TransformationsModel(id: "fakeId", name: "fakeName", description: "fakeDescription", photo: "fakePhoto", hero: transformationHero)
+        XCTAssertNotNil(model)
+        XCTAssertEqual(model.name, "fakeName")
+        
+        let requestModel = HeroModelRequest(name: "transformación de goku")
+        XCTAssertNotNil(requestModel)
+        XCTAssertEqual(requestModel.name, "transformación de goku")
+    }
+    
+    func testTransformation_Presentation() async throws  {
+        let viewModel = TransformationsViewModel(hero: hero, useCase: TransformationUseCaseFake())
+        XCTAssertNotNil(viewModel)
+        
+        let view =  await TransformationsTableViewController(appState: AppState(loginUseCase: LoginUseCaseFake()), viewModel: viewModel)
         XCTAssertNotNil(view)
         
     }

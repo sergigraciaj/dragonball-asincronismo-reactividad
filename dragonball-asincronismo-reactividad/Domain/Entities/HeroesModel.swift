@@ -1,7 +1,7 @@
 import Foundation
 
 struct HerosModel: Codable {
-    let id: UUID
+    let id: String
     let favorite: Bool
     let description: String
     let photo: String

@@ -48,11 +48,22 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		6AC49CB12CF653D90032FA90 /* Exceptions for "dragonball-asincronismo-reactividad" folder in "Compile Sources" phase from "dragonball-asincronismo-reactividad" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 6A9BE48A2CF5E6CB004281F1 /* Sources */;
+			membershipExceptions = (
+				Resources/transformations.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6A9BE4902CF5E6CB004281F1 /* dragonball-asincronismo-reactividad */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				6A9BE4B62CF5E6CC004281F1 /* Exceptions for "dragonball-asincronismo-reactividad" folder in "dragonball-asincronismo-reactividad" target */,
+				6AC49CB12CF653D90032FA90 /* Exceptions for "dragonball-asincronismo-reactividad" folder in "Compile Sources" phase from "dragonball-asincronismo-reactividad" target */,
 				6A9BE5162CF625D7004281F1 /* Exceptions for "dragonball-asincronismo-reactividad" folder in "dragonball-asincronismo-reactividadTests" target */,
 			);
 			path = "dragonball-asincronismo-reactividad";
